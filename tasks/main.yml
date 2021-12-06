@@ -13,7 +13,6 @@
       - apt-utils
       - aufs-tools
       - automake
-      - avahi-utils avahi-daemon avahi-autoipd
       - bash
       - build-essential
       - ca-certificates
