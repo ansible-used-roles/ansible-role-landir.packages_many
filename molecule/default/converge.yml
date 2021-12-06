@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include landir.packages_many"
+      include_role:
+        name: "landir.packages_many"

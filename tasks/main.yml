@@ -1,0 +1,104 @@
+---
+# tasks file for landir.packages_many
+- name: Update apt cache (Debian).
+  apt: update_cache=true cache_valid_time=86400
+  when: ansible_os_family == 'Debian'
+  #when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+- name: Packages needed.
+  apt:
+    name:
+      - apt-transport-https
+      - samba
+      - apt-utils
+      - aufs-tools
+      - automake
+      - avahi-utils avahi-daemon avahi-autoipd
+      - bash
+      - build-essential
+      - ca-certificates
+      - cryptsetup
+      - curl
+      - dnsutils
+      - dpkg-sig
+      - g++
+      - gcc
+      - gnupg2
+      - gnupg-agent
+      - gpg
+      - gzip
+      - jq
+      - ldap-utils
+      - libssl-dev
+      - lvm2
+      - lynx
+      - netcat
+      - net-tools
+      - nmap
+      - openssh-server
+      - openssl
+      - p7zip-full
+      - pass
+      - python3
+      - rsync
+      - software-properties-common
+      - tar
+      - tcpdump
+      - telnet
+      - tree
+      - tzdata
+      - wget
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Packages extras.
+  apt:
+    name:
+      - audacity
+      - autofs
+      - firefox
+      - firefox-geckodriver
+      - fortune-mod
+      - fortunes-br
+      - ffmpeg
+      - gimp
+      - imageinfo
+      - imagemagick
+      - inkscape
+      - jpegoptim
+      - libnss3-tools
+      - libxml2-utils
+      - ntfs-3g
+      - pmount
+      - pngcrush
+      - vlc
+      - vlc-plugin-access-extra
+      - xclip
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Packages for monitor.
+  apt:
+    name:
+      - atop
+      - htop
+      - slurm
+      - iotop
+      - dstat
+      - sysstat
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Packages for build.
+  apt:
+    name:
+      - libcurl4-gnutls-dev
+      - libexpat1-dev
+      - gettext
+      - libssl-dev
+      - zlib1g-dev
+      - build-essential
+      - gcc
+      - git
+    state: present
+  when: ansible_os_family == 'Debian'
