@@ -55,7 +55,7 @@
       - audacity
       - autofs
       - firefox
-      - firefox-geckodriver
+        #- firefox-geckodriver
       - fortune-mod
       - fortunes-br
       - ffmpeg
